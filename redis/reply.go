@@ -155,6 +155,10 @@ func String(reply interface{}, err error) (string, error) {
 		return string(reply), nil
 	case string:
 		return reply, nil
+	case int64:
+		return strconv.FormatInt(reply, 10), nil
+	case int:
+		return strconv.Itoa(reply), nil
 	case nil:
 		return "", ErrNil
 	case Error:
